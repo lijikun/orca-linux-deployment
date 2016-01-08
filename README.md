@@ -27,10 +27,11 @@ Extract the files to a directory (e.g. /opt/orca-3.0.3).
 
         % cd test
         % orca test1-single.orca
-        % tail test1-single.orca
+        % tail test1-single.orca.log
         % orca test2-8thread.orca
-        % tail test2-8thread.orca
+        % tail test2-8thread.orca.log
 
 7. Now you are ready to run ORCA:  
 
         % orca JOBNAME
+        % tail JOBNAME.log
