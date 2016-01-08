@@ -1,0 +1,4 @@
+orca_path=/opt/orca-3.0.3
+orca() { $orca_path/orca $1 > $1.log; }
+export PATH=$PATH:/usr/local/lib/openmpi-1.6.5/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/openmpi-1.6.5/lib
