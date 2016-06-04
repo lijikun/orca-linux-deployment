@@ -17,7 +17,8 @@ Extract the files to a directory (e.g. /opt/orca-3.0.3).
 
 4. Edit the orca_path line in the orcainit script such that it points to the path of the ORCA installation.
 
-        sed -i 's/\/opt\/orca-3.0.3/PATH-TO-YOUR-ORCA-INSTALLATION/g' orcainit
+        orcapath="[Insert your ORCA path here.]"
+        sed -i "s:/opt/orca-3.0.3:${orcapath}:g" orcainit
 
 5. Using bash or a compatible shell, source the orcainit script to set the proper ORCA and OpenMPI in enviromental variables:  
 
@@ -27,11 +28,11 @@ Extract the files to a directory (e.g. /opt/orca-3.0.3).
 
         cd test
         orca test1-single.orca
-        tail test1-single.orca.log
+        less test1-single.orca.log
         orca test2-8thread.orca
-        tail test2-8thread.orca.log
+        less test2-8thread.orca.log
 
 7. Now you are ready to run ORCA:  
 
         orca JOBNAME
-        tail JOBNAME.log
+        less JOBNAME.log
