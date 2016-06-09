@@ -1,6 +1,6 @@
 For deployment of parallelized ORCA on Linux-x64 computer. Tested to work on Debian 8 and CentOS 7, with ORCA 3.0.3.
 
-1. ORCA 3.0.3 needs OpenMPI 1.6.5 for proper multithreaded computing. Download openmpi-1.6.5 source code:  
+1. ORCA 3.0.3 requires OpenMPI 1.6.5 for multithreaded computing. Download openmpi-1.6.5 source code:  
 
         wget http://www.open-mpi.org/software/ompi/v1.6/downloads/openmpi-1.6.5.tar.gz
 
