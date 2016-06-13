@@ -2,9 +2,9 @@
 orca_path=/opt/orca-3.0.3
 openmpi_path=/usr/local/lib/openmpi-1.6.5
 orca() { $orca_path/orca $1 > $1.log; }
-if [[ ${PATH} =~ ${openmpi_path} ]]; then
+if [[ ! ${PATH} =~ ${openmpi_path} ]]; then
   export PATH=$PATH:/usr/local/lib/openmpi-1.6.5/bin
 fi
-if [[ ${LD_LIBRARY_PATH} =~ ${openmpi_path} ]]; then  
+if [[ ! ${LD_LIBRARY_PATH} =~ ${openmpi_path} ]]; then  
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/openmpi-1.6.5/lib
 fi
