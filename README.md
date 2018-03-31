@@ -2,9 +2,9 @@ For deployment of parallelized [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x6
 
 # For ORCA version 4
 
-Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2.
+Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2. I tried to use the static-linked binary version but it crashes with some segfault, so we have to use the *shared-library* version here.
 
-1. Download and install from openmpi-2.0.2 source:
+1. Assuming you have sudo privileges. Download and install openmpi-2.0.2 from source:
 
         cd /tmp
         wget https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.2.tar.gz
@@ -14,7 +14,7 @@ Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2.
         make all -j4
         sudo make install
 
-2. Go to https://cec.mpg.de/orcadownload/ to download ORCA version 4 archive, choosing the shared library version. Extract to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
+2. While it is compiling, go to https://cec.mpg.de/orcadownload/ to download ORCA version 4 archive, choosing the shared-library version. Extract it to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
 
         cd /opt
         sudo tar xvf ~/Downloads/orca_4_0_1_2_linux_x86-64_shared_openmpi202.tar.xz
@@ -52,7 +52,7 @@ Tested to work on Debian 8 and CentOS 7, with ORCA 3.0.3.
         ./configure --prefix=/usr/local/lib/openmpi-1.6.5
         make all 
         sudo make install
-Make sure that files are installed to /usr/local/lib/openmpi-1.6.5/
+    Make sure that files are installed to /usr/local/lib/openmpi-1.6.5/
 
 3. Download ORCA files from the website: https://orcaforum.cec.mpg.de/ .  
 Extract the files to target directory (e.g. `/opt/orca-3.0.3`).
