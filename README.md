@@ -3,8 +3,7 @@ For deployment of parallelized [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x6
 # For ORCA version 4
 1. Download and install from openmpi-2.0.2 source:
 
-        mkdir /tmp/openmpi202
-        cd /tmp/openmpi202
+        cd /tmp
         wget https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.2.tar.gz
         tar xvf openmpi-2.0.2.tar.gz
         cd openmpi-2.0.2
@@ -14,11 +13,19 @@ For deployment of parallelized [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x6
 
 2. Download ORCA version 4 archive and extract to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
 
-3. Edit `orcainit4` script to the right path for your orca installation.
+3. Edit `orcainit4` script, such thatthe `$orca_path` variable is the right path for your orca installation.
 
 4. Source (in a bash or bash-like shell) the `orcainit4` script.
 
+        source orcainit4
+
 5. Test provided orca jobs.
+
+        cd test
+        orca test1-single.orca
+        orca test2-2thread.orca
+
+6. Now you are ready to go. Just remember sourcing `orcainit4` in each new shell.
 
 
 # For ORCA version 3
@@ -59,8 +66,8 @@ u       orcapath="[Insert your ORCA path here.]"
         cd test
         orca test1-single.orca
         less test1-single.orca.log
-        orca test2-8thread.orca
-        less test2-8thread.orca.log
+        orca test2-2thread.orca
+        less test2-2thread.orca.log
 
 7. Now you are ready to run ORCA:  
 
