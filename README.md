@@ -1,31 +1,40 @@
 For deployment of parallelized [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x64 computers. 
 
 # For ORCA version 4
+
+Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2.
+
 1. Download and install from openmpi-2.0.2 source:
 
         cd /tmp
         wget https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.2.tar.gz
         tar xvf openmpi-2.0.2.tar.gz
         cd openmpi-2.0.2
-        ./configure --prefix=/usr/local/lib/openmpi-1.6.5
+        ./configure --prefix=/usr/local/lib/openmpi-2.0.2
         make all -j4
         sudo make install
 
-2. Download ORCA version 4 archive and extract to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
+2. Go to https://cec.mpg.de/orcadownload/ to download ORCA version 4 archive, choosing the shared library version. Extract to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
 
-3. Edit `orcainit4` script, such thatthe `$orca_path` variable is the right path for your orca installation.
+        cd /opt
+        sudo tar xvf ~/Downloads/orca_4_0_1_2_linux_x86-64_shared_openmpi202.tar.xz
+        sudo mv orca_4_0_1_2_linux_x86-64_shared_openmpi202 orca-4.0.1.2
 
-4. Source (in a bash or bash-like shell) the `orcainit4` script.
+3. Download the `orcainit4` script from this repo. Edit it, such that the `$orca_path` variable corresponds to the right path for your orca installation.
+
+        sed -i "s:/opt/orca-4.0.1.2:[your ORCA path]:g" orcainit4
+
+4. Source (in a bash, zsh, fish, etc. shell) the `orcainit4` script.
 
         source orcainit4
 
-5. Test provided orca jobs.
+5. Test provided sample ORCA jobs. Make sure it works with openmpi.
 
         cd test
         orca test1-single.orca
         orca test2-2thread.orca
 
-6. Now you are ready to go. Just remember sourcing `orcainit4` in each new shell.
+6. Now you are ready to go. Just remember to source `orcainit4` again each time you start a new shell.
 
 
 # For ORCA version 3
@@ -54,8 +63,8 @@ Extract the files to target directory (e.g. `/opt/orca-3.0.3`).
 
 4. Edit the orca_path line in the `orcainit3` script such that it points to the path of the ORCA installation.
 
-u       orcapath="[Insert your ORCA path here.]"
-        sed -i "s:/opt/orca-3.0.3:${orcapath}:g" orcainit
+        orcapath="[Insert your ORCA path here.]"
+        sed -i "s:/opt/orca-3.0.3:${orcapath}:g" orcainit3
 
 5. Using bash or a compatible shell, source the `orcainit3` script to set the proper ORCA and OpenMPI in enviromental variables:  
 
