@@ -4,7 +4,7 @@ For deployment of parallelized [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x6
 
 Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2. I tried to use the static-linked binary version but it crashes into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
-1. Assuming you have sudo privileges. Download and install openmpi-2.0.2 from source:
+1. Assuming you have sudo privileges, download and install openmpi-2.0.2 from source:
 
         cd /tmp
         wget https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.2.tar.gz
