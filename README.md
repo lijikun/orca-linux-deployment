@@ -31,12 +31,11 @@ Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2. I tried to use the stat
 5. Test provided sample ORCA jobs. Make sure it works with openmpi.
 
         cd test
-        orca test1-single.orca
-        orca test2-2thread.orca
+        orca test1-single.orca test2-2thread.orca
 
-6. Now you are ready to go. Just remember to source `orcainit4` again each time you start a new shell.
+6. Now you are ready to go. Just remember to source `orcainit4` again each time you start a new shell. Note that, like the example above, you can input multiple input files. They will be run serially.
 
-        orca [your job file name]
+        orca [your job file 1] [your job file 2] ...
 
 
 # For ORCA version 3
