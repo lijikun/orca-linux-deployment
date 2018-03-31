@@ -5,8 +5,11 @@ openmpi_path=/usr/local/lib/openmpi-2.0.2
 
 orca() { ${orca_path}/orca $1 > $1.log; }
 if [[ ! ${PATH} =~ ${openmpi_path} ]]; then
-  export PATH=${openmpi_path}/bin:$PATH
+  export PATH="${openmpi_path}/bin":$PATH
 fi
-if [[ ! ${LD_LIBRARY_PATH} =~ ${openmpi_path} ]] || [[ ! ${LD_LIBRARY_PATH} =~ ${orca_path} ]]; then  
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${orca_path}:${openmpi_path}/lib
+if [[ ! ${LD_LIBRARY_PATH} =~ ${orca_path} ]]; then  
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${orca_path}
+fi
+if [[ ! ${LD_LIBRARY_PATH} =~ "${openmpi_path}/lib" ]]; then  
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"${openmpi_path}/lib"
 fi
