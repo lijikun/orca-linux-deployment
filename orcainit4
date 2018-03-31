@@ -8,8 +8,8 @@ if [[ ! ${PATH} =~ ${openmpi_path} ]]; then
   export PATH="${openmpi_path}/bin":$PATH
 fi
 if [[ ! ${LD_LIBRARY_PATH} =~ ${orca_path} ]]; then  
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${orca_path}
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH+"${LD_LIBRARY_PATH}:"}${orca_path}
 fi
 if [[ ! ${LD_LIBRARY_PATH} =~ "${openmpi_path}/lib" ]]; then  
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"${openmpi_path}/lib"
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH+"${LD_LIBRARY_PATH}:"}"${openmpi_path}/lib"
 fi
