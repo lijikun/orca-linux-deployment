@@ -20,11 +20,11 @@ Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2. I tried to use the stat
         sudo tar xvf ~/Downloads/orca_4_0_1_2_linux_x86-64_shared_openmpi202.tar.xz
         sudo mv orca_4_0_1_2_linux_x86-64_shared_openmpi202 orca-4.0.1.2
 
-3. Download the [`orcainit4`](https://raw.githubusercontent.com/lijikun/orca-linux-deployment/master/orcainit4) script from this repo. Edit it, such that the `$orca_path` variable corresponds to the right path for your orca installation.
+3. Now `cd` to this repo. Edit the `orcainit4` script, such that the `$orca_path` variable corresponds to the right path for your ORCA installation.
 
         sed orcainit4 -i "s:/opt/orca-4.0.1.2:[your ORCA path]:g"
 
-4. Source (in a bash, zsh, fish, etc. shell) the `orcainit4` script.
+4. Source (in a bash, zsh, fish, etc. shell) the script.
 
         source orcainit4
 
@@ -35,6 +35,8 @@ Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2. I tried to use the stat
         orca test2-2thread.orca
 
 6. Now you are ready to go. Just remember to source `orcainit4` again each time you start a new shell.
+
+        orca [your job file name]
 
 
 # For ORCA version 3
