@@ -1,4 +1,4 @@
-For deployment of parallelized [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x64 computers. 
+For the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x64 computers. 
 
 # For ORCA version 4
 
