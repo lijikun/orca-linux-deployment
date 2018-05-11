@@ -5,11 +5,11 @@ openmpi_path=/usr/local/lib/openmpi-2.0.2
 
 if [[ ! -x "${orca_path}/orca" ]]; then
   echo "ORCA not found." >&2
-  exit 1
+  return 1
 fi
 if [[ ! -d "${openmpi_path}/lib" ]]; then
   echo "OpenMPI 2.0.2 not installed." >&2
-  exit 2
+  return 2
 fi
 
 orca() {
