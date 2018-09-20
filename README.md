@@ -14,7 +14,7 @@ Tested to work under Debian 9.4 amd64 with ORCA 4.0.1.2. I tried to use the stat
         make all -j4
         sudo make install
 
-2. While it is compiling, go to https://cec.mpg.de/orcadownload/ to download ORCA version 4 archive, choosing the shared-library version. Extract it to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
+2. While it is compiling, go to https://cec.mpg.de/orcadownload/ to download ORCA version 4 archive, **choosing the shared-library version**. Extract it to the desired installation directory. (e.g. `/opt/orca-4.0.1.2`)
 
         cd /opt
         sudo tar xvf ~/Downloads/orca_4_0_1_2_linux_x86-64_shared_openmpi202.tar.xz
