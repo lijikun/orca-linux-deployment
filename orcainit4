@@ -1,7 +1,7 @@
 #!/bin/bash
 
-orca_path=/opt/orca-4.0.1.2
-openmpi_path=/usr/local/lib/openmpi-2.0.2
+orca_path=/opt/orca-4.1.2
+openmpi_path=${orca_path}/openmpi-3.1.3
 
 backup_file() {
 	if [[ -e "${1}.bak" ]]; then
