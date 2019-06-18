@@ -2,7 +2,7 @@ For the deployment of parallelized quantum chemistry program [ORCA](https://orca
 
 # For ORCA version 4
 
-Tested to work under Debian 9.4 amd64 with ORCA 4.1.2. I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
+Tested to work under Debian Stretch amd64 with ORCA 4.1.2. I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
 1. Assuming you have sudo privileges, download and install openmpi-3.1.3 from source. Change the directory names as necessory:
 
