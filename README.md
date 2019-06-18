@@ -1,8 +1,8 @@
-For the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.cec.mpg.de/) on Linux-x64 computers. 
+Scripts and installation process for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. 
 
 # For ORCA version 4
 
-Tested to work under Debian Stretch amd64 with ORCA 4.1.2. I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
+Tested to work under Debian Stretch amd64 with ORCA 4.1.2 using OpenMPI 3.1.3. I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
 1. Assuming you have sudo privileges, download and install openmpi-3.1.3 from source. Change the directory names as necessory:
 
@@ -14,7 +14,7 @@ Tested to work under Debian Stretch amd64 with ORCA 4.1.2. I tried to use the st
         make all
         sudo make install
 
-2. While it is compiling, go to https://orcaforum.kofo.mpg.de/app.php/dlext/ to download ORCA version 4 archive, **choosing the shared-library version**. Extract it to the desired installation directory. (Here we use `/opt/orca-4.1.2`.)
+2. While it is compiling, go to https://orcaforum.kofo.mpg.de/app.php/dlext/ to download ORCA version 4 archive, **choosing the shared-library version** compiled against OpenMPI 3.1.3. Extract it to the desired installation directory. (Here we use `/opt/orca-4.1.2`.)
 
         cd /opt
         sudo tar xvf ~/Downloads/orca_4_1_2_linux_x86-64_shared_openmpi313.tar.xz
