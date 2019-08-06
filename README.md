@@ -2,9 +2,11 @@ Scripts and installation process for the deployment of parallelized quantum chem
 
 # For ORCA version 4
 
-Tested to work under Debian Stretch amd64 with ORCA 4.1.2 using OpenMPI 3.1.3. I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
+Tested to work under Debian 9 (Stretch) and Ubuntu LTS 18.04 (amd64) with ORCA version 4.1.2 using OpenMPI 3.1.3. 
 
-1. Assuming you have sudo privileges, download and install openmpi-3.1.3 from source. Change the directory names as necessory:
+I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
+
+1. Make sure you have sudo privileges, download and install openmpi-3.1.3 from source. Change the directory names as necessory:
 
         cd /tmp
         wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.gz
@@ -28,7 +30,7 @@ Tested to work under Debian Stretch amd64 with ORCA 4.1.2 using OpenMPI 3.1.3. I
 
         source orcainit4
 
-5. Test provided sample ORCA jobs. Make sure it works with openmpi.
+5. Test provided sample ORCA jobs. Make sure it works with openmpi parallelism.
 
         cd test
         orca test1-single.orca test2-2thread.orca
@@ -38,7 +40,7 @@ Tested to work under Debian Stretch amd64 with ORCA 4.1.2 using OpenMPI 3.1.3. I
         orca [your job file 1] [your job file 2] ...
 
 
-# For ORCA version 3
+# For ORCA version 3 (Not tested or updated anymore).
 
 Tested to work on Debian 8 and CentOS 7, with ORCA 3.0.3.
 
