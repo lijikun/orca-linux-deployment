@@ -12,7 +12,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.gz
         tar xvf openmpi-3.1.3.tar.gz
         cd openmpi-3.1.3
-        ./configure --prefix=/opt/orca-4.1.2/openmpi-2.0.2
+        ./configure --prefix=/opt/orca-4.1.2/openmpi-3.1.3
         make all
         sudo make install
 
@@ -20,9 +20,9 @@ I tried to use the static-linked binary version but it crashed into a segfault w
 
         cd /opt
         sudo tar xvf ~/Downloads/orca_4_1_2_linux_x86-64_shared_openmpi313.tar.xz
-        sudo mv orca_4_1_2_linux_x86-64_shared_openmpi313.tar.xz orca-4.1.2
+        sudo mv orca_4_1_2_linux_x86-64_shared_openmpi313 orca-4.1.2
 
-3. Now `cd` to this repo. Edit the `orcainit4` script, such that the `$orca_path` variable corresponds to the right path for your ORCA installation.
+3. Now `cd` to this repo. Edit the `orcainit4` script, such that the `$orca_path` variable corresponds to the right path for your ORCA installation. You can use your favourite text editor or a command line tool like `sed`.
 
         sed orcainit4 -i "s:/opt/orca-4.1.2:[your ORCA path]:g"
 
