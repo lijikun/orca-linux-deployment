@@ -4,10 +4,12 @@ orca_path=/opt/orca-4.1.2
 openmpi_path=${orca_path}/openmpi-3.1.3
 
 backup_file() {
-	if [[ -e "${1}.bak" ]]; then
-		backup_file "${1}.bak"
+	if [[ -e "${1}" ]]; then
+		if [[ -e "${1}.bak" ]]; then
+			backup_file "${1}.bak"
+		fi
+		mv "${1}" "${1}.bak"
 	fi
-	mv "${1}" "${1}.bak"
 }
     
 
@@ -21,10 +23,8 @@ if [[ ! -d "${openmpi_path}/lib" ]]; then
 fi
 
 orca() {
-  for file1 in "$@"; do
-		if [[ -e "${file1}.log" ]]; then
-			backup_file "${file1}.log"
-		fi
+  for file1 in "$@"; do	
+	backup_file "${file1}.log"
     "${orca_path}/orca" "${file1}" > "${file1}.log"; 
   done; 
 }
