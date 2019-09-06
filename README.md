@@ -33,7 +33,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
 5. Test provided sample ORCA jobs. Make sure it works with openmpi parallelism.
 
         cd test
-        orca test1-single.orca test2-2thread.orca
+        orca test1-1proc.orca test2-2procs.orca
 
 6. Now you are ready to go. Just remember to source `orcainit4` again each time you start a new shell. Note that, like the example above, you can input multiple input files. They will be run serially.
 
@@ -76,10 +76,10 @@ Extract the files to target directory (e.g. `/opt/orca-3.0.3`).
 6. Test single-core and multi-core ORCA calculations:  
 
         cd test
-        orca test1-single.orca
-        less test1-single.orca.log
-        orca test2-2thread.orca
-        less test2-2thread.orca.log
+        orca test1-1proc.orca
+        less test1-1proc.orca.log
+        orca test2-2procs.orca
+        less test2-2procs.orca.log
 
 7. Now you are ready to run ORCA:  
 
