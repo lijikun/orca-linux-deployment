@@ -2,29 +2,27 @@ Scripts and installation process for the deployment of parallelized quantum chem
 
 # For ORCA version 4
 
-Tested to work under Debian 9 (Stretch) and Ubuntu LTS 18.04 (amd64) with ORCA version 4.1.2 using OpenMPI 3.1.3. 
+Tested to work under Debian 9 (Stretch) and Ubuntu LTS 18.04 (amd64) with ORCA version 4.2.0 using OpenMPI 3.1.4. 
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
-1. Make sure you have sudo privileges, download and install openmpi-3.1.3 from source. Change the directory names as necessory:
+1. Make sure you have sudo privileges, download and install openmpi-3.1.4 from source. Change the directory names as necessory:
 
         cd /tmp
-        wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.gz
-        tar xvf openmpi-3.1.3.tar.gz
-        cd openmpi-3.1.3
-        ./configure --prefix=/opt/orca-4.1.2/openmpi-3.1.3
+        wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.4.tar.gz
+        tar xvf openmpi-3.1.4.tar.gz
+        cd openmpi-3.1.4
+        ./configure --prefix=/opt/orca-4.2.0/openmpi-3.1.4
         make all
         sudo make install
 
-2. While it is compiling, go to https://orcaforum.kofo.mpg.de/app.php/dlext/ to download ORCA version 4 archive, **choosing the shared-library version** compiled against OpenMPI 3.1.3. Extract it to the desired installation directory. (Here we use `/opt/orca-4.1.2`.)
+2. While it is compiling, go to https://orcaforum.kofo.mpg.de/app.php/dlext/ to download ORCA version 4 archive, **choosing the shared-library version** compiled against OpenMPI 3.1.4. Extract it to the desired installation directory. (Here we use `/opt/orca-4.1.2`.)
 
         cd /opt
-        sudo tar xvf ~/Downloads/orca_4_1_2_linux_x86-64_shared_openmpi313.tar.xz
-        sudo mv orca_4_1_2_linux_x86-64_shared_openmpi313 orca-4.1.2
+        sudo tar xvf ~/Downloads/orca_4_2_0_linux_x86-64_shared_openmpi314.tar.xz
+        sudo mv orca_4_2_0_linux_x86-64_shared_openmpi313 orca-4.2.0
 
-3. Now `cd` to this repo. Edit the `orcainit4` script, such that the `$orca_path` variable corresponds to the right path for your ORCA installation. You can use your favourite text editor or a command line tool like `sed`.
-
-        sed orcainit4 -i "s:/opt/orca-4.1.2:[your ORCA path]:g"
+3. Now `cd` to this repo. Edit the `orcainit4` script, such that the `$orca_path` variable corresponds to the right path for your ORCA installation.
 
 4. Source (in a bash, zsh, fish, etc. shell) the script.
 
