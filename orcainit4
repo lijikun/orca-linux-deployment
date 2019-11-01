@@ -1,6 +1,6 @@
 #!/bin/bash
 
-orca_ver=4.2.0
+orca_ver=4.2.1
 openmpi_ver=3.1.4
 orca_path=/opt/orca-${orca_ver}
 openmpi_path=${orca_path}/openmpi-${openmpi_ver}
