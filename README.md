@@ -42,7 +42,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
 
         orca [your job file 1] [your job file 2] ...
         
-Bonus: `janpa_orca` is a helper script to use [JANPA](http://janpa.sourceforge.net/) with ORCA. Put it in the same folder as your JANPA .jar files, and edit it to point to the correct paths for JANPA and ORCA. Source this script, and you can just run `janpa_orca myOrcaJobName.orca` (provided the ORCA job has already been completed) to automate the JANPA analysis.
+**Bonus:** `janpa_orca` is a helper script to use [JANPA](http://janpa.sourceforge.net/) with ORCA. Put it in the same folder as your JANPA .jar files, and edit it to point to the correct paths for JANPA and ORCA. Source this script, and you can just run `janpa_orca myOrcaJobName.orca` (provided the ORCA job has already been completed) to automate the JANPA analysis.
 
 
 # For ORCA version 3 (Not tested or updated anymore).
