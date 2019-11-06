@@ -1,0 +1,16 @@
+#!/bin/bash
+
+janpa_path=~/Apps/janpa
+orca4_path=/opt/orca-4.0.1.2
+
+for x in ${janpa_path}/*.jar; do
+    x1=$(basename $x)
+    alias ${x1%.jar}="java -jar ${x}"
+done
+
+janpa_orca () {
+    source ${orca4_path}/orcainit4
+    ${orca_path}/orca_2mkl $1 -molden
+    molden2molden -i $1.molden.input -o $1.molden -fromorca3bf -orca3signs
+    janpa -i $1.molden > $1.janpa
+}
