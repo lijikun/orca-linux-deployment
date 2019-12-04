@@ -19,8 +19,8 @@ I tried to use the static-linked binary version but it crashed into a segfault w
 2. While it is compiling, go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to download ORCA version 4 archive, **choosing the shared-library version** compiled against OpenMPI 3.1.4. Extract it to the desired installation directory. (Here we use `/opt/orca-4.2.1`.)
 
         cd /opt
-        sudo tar xvf ~/Downloads/orca_4_2_0_linux_x86-64_shared_openmpi314.tar.xz
-        sudo mv orca_4_2_0_linux_x86-64_shared_openmpi313 orca-4.2.1
+        sudo tar xvf ~/Downloads/orca_4_2_1_linux_x86-64_shared_openmpi314.tar.xz
+        sudo mv orca_4_2_1_linux_x86-64_shared_openmpi313 orca-4.2.1
 
 3. Now `cd` to th3 repo. Edit the initial part of the `orcainit4` script, such that the `$orca_path` and `openmpi_path` variables point to the correct paths for your ORCA and OpenMPI installations, for example:
         
