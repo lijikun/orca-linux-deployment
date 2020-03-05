@@ -6,7 +6,7 @@ Tested to work under Ubuntu LTS 18.04 (amd64) with ORCA version up to 4.2.1 usin
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
-1. Make sure you have sudo privileges, download and install openmpi-3.1.4 from source. Change the directory names as necessory:
+1. Make sure you have sudo privileges, download and install openmpi-3.1.4 from source. Change the directory names as necessary:
 
         cd /tmp
         wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.4.tar.gz
@@ -22,7 +22,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         sudo tar xvf ~/Downloads/orca_4_2_1_linux_x86-64_shared_openmpi314.tar.xz
         sudo mv orca_4_2_1_linux_x86-64_shared_openmpi313 orca-4.2.1
 
-3. Now `cd` to th3 repo. Edit the initial part of the `orcainit4` script, such that the `$orca_path` and `openmpi_path` variables point to the correct paths for your ORCA and OpenMPI installations, for example:
+3. Now `cd` to the repo. Edit the initial part of the `orcainit4` script, such that the `$orca_path` and `openmpi_path` variables point to the correct paths for your ORCA and OpenMPI installations, for example:
         
         orca_ver=4.2.1
         openmpi_ver=3.1.4
