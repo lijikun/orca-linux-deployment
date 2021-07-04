@@ -1,8 +1,8 @@
 Scripts and installation process for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. 
 
-# For ORCA version 4
+# For ORCA version 4/5
 
-Tested to work under Ubuntu LTS 18.04 (amd64) with ORCA version up to 4.2.1 using OpenMPI 3.1.4. 
+Tested to work under Ubuntu LTS 20.04 (amd64) with ORCA version up to 5.0.0 using OpenMPI 4.1.1. 
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
