@@ -6,32 +6,34 @@ Tested to work under Ubuntu LTS 20.04 (amd64) with ORCA version up to 5.0.0 usin
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
-1. Make sure you have sudo privileges, download and install openmpi-3.1.4 from source. Change the directory names as necessary:
+0. Take note of the version number of the ORCA package you want to use, along with the OpenMPI version against which it is compiled.
+
+1. Make sure you have sudo privileges. Download and install openmpi-4.1.1 (or any other specific version ORCA is compiled against) from source. Change the directory names as necessary:
 
         cd /tmp
-        wget https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.4.tar.gz
-        tar xvf openmpi-3.1.4.tar.gz
-        cd openmpi-3.1.4
-        ./configure --prefix=/opt/orca-4.2.1/openmpi-3.1.4
+        wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
+        tar xvf openmpi-4.1.1.tar.gz
+        cd openmpi-4.1.1
+        ./configure --prefix=/opt/orca-5.0.0/openmpi-4.1.1
         make all
         sudo make install
 
-2. While it is compiling, go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to download ORCA version 4 archive, **choosing the shared-library version** compiled against OpenMPI 3.1.4. Extract it to the desired installation directory. (Here we use `/opt/orca-4.2.1`.)
+2. While it is compiling, open your web browser and go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to the download ORCA version 4 or 5 archive, **choosing the shared-library version** compiled against the given version of OpenMPI (OMPI 4.1.1 for ORCA 5.0.0; OMPI 3.1.4 for ORCA 4.2.1). Extract it to the desired installation directory. (Here I use `/opt/orca-5.0.0`.)
 
         cd /opt
-        sudo tar xvf ~/Downloads/orca_4_2_1_linux_x86-64_shared_openmpi314.tar.xz
-        sudo mv orca_4_2_1_linux_x86-64_shared_openmpi313 orca-4.2.1
+        sudo tar xvf ~/Downloads/orca_5_0_0*.tar.xz
+        sudo mv orca_5_0_0* orca-5.0.0
 
-3. Now `cd` to the repo. Edit the initial part of the `orcainit4` script, such that the `$orca_path` and `openmpi_path` variables point to the correct paths for your ORCA and OpenMPI installations, for example:
+3. Download the `orcainit4` script from this repo to your computer and put it wherever you think appropriate (I just put it in the same folder as ORCA). Edit the initial part of the `orcainit4` script, such that the `$orca_path` and `openmpi_path` variables point to the correct paths for your ORCA and OpenMPI installations, for example:
         
-        orca_ver=4.2.1
-        openmpi_ver=3.1.4
+        orca_ver=5.0.0
+        openmpi_ver=4.1.1
         orca_path=/opt/orca-${orca_ver}
         openmpi_path=${orca_path}/openmpi-${openmpi_ver}
 
 4. Source (in a bash, zsh, fish, etc. shell) the script.
 
-        source orcainit4
+        source /opt/orca-5.0.0/orcainit4
 
 5. Test provided sample ORCA jobs. Make sure it works with openmpi parallelism.
 
