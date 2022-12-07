@@ -25,7 +25,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         sudo tar xvf ~/Downloads/orca_5_0_3*.tar.xz
         sudo mv orca_5_0_3* orca-5.0.3
 
-3. Download the `orcainit4` script from this repo to your computer and put it wherever you think appropriate (I just put it in the same folder as ORCA). Edit the initial part of the `orcainit4` script, such that the `$orca_path` and `openmpi_path` variables point to the correct paths for your ORCA and OpenMPI installations, for example:
+3. Download the `orcainit4` or `orcainit5` script from this repo to your computer and put it wherever you think appropriate (I just put it in the same directory as ORCA). Edit the initial part of the script, such that the `$orca_path` and `openmpi_path` variables contain the correct paths for your ORCA and OpenMPI installations, for example:
         
         orca_ver=5.0.3
         openmpi_ver=4.1.1
@@ -34,7 +34,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
 
 4. Source (in a bash, zsh, fish, etc. shell) the script.
 
-        source /opt/orca-5.0.3/orcainit4
+        source /opt/orca-5.0.3/orcainit5
 
 5. Test provided sample ORCA jobs. Make sure it works with openmpi parallelism.
 
