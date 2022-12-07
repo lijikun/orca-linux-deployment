@@ -14,11 +14,12 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
         tar xvf openmpi-4.1.1.tar.gz
         cd openmpi-4.1.1
-        ./configure --prefix=/opt/orca-5.0.0/openmpi-4.1.1
+        ./configure --prefix=/opt/orca-5.0.3/openmpi-4.1.1
         make all
+        mkdir -p /opt/orca-5.0.3
         sudo make install
 
-2. While it is compiling, open your web browser and go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to the download ORCA version 4 or 5 archive, **choosing the shared-library version** compiled against the given version of OpenMPI (OMPI 4.1.1 for ORCA 5.0.x; OMPI 3.1.4 for ORCA 4.2.1). Extract it to the desired installation directory. (Here I use `/opt/orca-5.0.3`.)
+2. While it is compiling, open your web browser and go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to download ORCA 4.x.x or 5.x.x, **choosing the shared-library version** compiled against the above version of OpenMPI (e.g. OMPI 4.1.1 for ORCA 5.0.3; OMPI 3.1.4 for ORCA 4.2.1). Extract it to the desired installation directory. (Here I use `/opt/orca-5.0.3`.)
 
         cd /opt
         sudo tar xvf ~/Downloads/orca_5_0_3*.tar.xz
