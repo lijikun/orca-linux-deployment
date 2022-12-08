@@ -41,7 +41,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         cd test
         orca test1-1proc.orca test2-2procs.orca
 
-6. Now you are ready to go. Just remember to source `orcainit4` again each time you start a new shell. Note that, like the example above, you can input multiple input files. They will be run serially.
+6. Now you are ready to go. Just remember to source `orcainit5` again each time you start a new shell. Note that, like the example above, you can give it multiple input files. They will be run sequentially.
 
         orca [your job file 1] [your job file 2] ...
         
