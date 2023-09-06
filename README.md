@@ -1,4 +1,4 @@
-Scripts and installation process for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. Also works on WSL Ubuntu.
+Scripts and installation process for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. Also works on WSL Debian or Ubuntu.
 
 # For ORCA version 4/5
 
