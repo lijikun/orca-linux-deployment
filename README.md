@@ -2,7 +2,7 @@ Scripts and installation process for the deployment of parallelized quantum chem
 
 # For ORCA version 4/5
 
-Tested to work under Ubuntu LTS 22.04 (amd64) with ORCA version up to 5.0.3 using OpenMPI 4.1.1. 
+Tested to work under Ubuntu LTS 22.04, Debian 11 and WSL-Debian under Windows 11 with ORCA version up to 5.0.4 using OpenMPI 4.1.1, with modern AMD and Intel x64 CPUs. 
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
