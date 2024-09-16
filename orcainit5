@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change these to your versions of software.
-orca_ver=5.0.3
+orca_ver=5.0.4
 openmpi_ver=4.1.1
 orca_path="/opt/orca-${orca_ver}"
 openmpi_path="${orca_path}/openmpi-${openmpi_ver}"
