@@ -1,47 +1,47 @@
 Scripts and installation process for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. Also works on WSL Debian or Ubuntu.
 
-# For ORCA version 4/5
+# For ORCA version 4-6
 
-Tested to work under Ubuntu LTS 22.04, Debian 11 and WSL-Debian under Windows 11 with ORCA version up to 5.0.4 using OpenMPI 4.1.1, with modern AMD and Intel x64 CPUs. 
+Tested to work under Ubuntu LTS 22.04, Debian 12 and WSL-Debian under Windows 11 with ORCA version up to 6.0.0 with OpenMPI 4.1.6, with modern AMD or Intel x64 processors. 
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
 0. Take note of the version number of the ORCA package you want to use, along with the OpenMPI version against which it is compiled.
 
-1. Make sure you have sudo privileges. Download and install openmpi-4.1.1 (or any other specific version ORCA is compiled against) from source. Change the directory names as necessary:
+1. Make sure you have sudo privileges. Download and install openmpi-4.1.6 (or any other specific version ORCA is compiled against) from source by running the following commands sequentially (Change the directory names as necessary):
 
         cd /tmp
-        wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
-        tar xvf openmpi-4.1.1.tar.gz
-        cd openmpi-4.1.1
-        ./configure --prefix=/opt/orca-5.0.3/openmpi-4.1.1
+        wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.tar.gz
+        tar xvf openmpi-4.1.6.tar.gz
+        cd openmpi-4.1.6
+        ./configure --prefix=/opt/orca-6.0.0/openmpi-4.1.6
         make all
-        mkdir -p /opt/orca-5.0.3
+        mkdir -p /opt/orca-6.0.0
         sudo make install
 
-2. While it is compiling, open your web browser and go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to download ORCA 4.x.x or 5.x.x, **choosing the shared-library version** compiled against the above version of OpenMPI (e.g. OMPI 4.1.1 for ORCA 5.0.3; OMPI 3.1.4 for ORCA 4.2.1). Extract it to the desired installation directory. (Here I use `/opt/orca-5.0.3`.)
+2. While it is compiling, open your web browser and go to https://orcaforum.kofo.mpg.de/app.php/dlext/ (login required) to download ORCA version x.y.z, **choosing the shared-library version** linked against the above version of OpenMPI (e.g. "ORCA 6.0.0, Linux, x86-64 (AVX2), .tar.xz Archive Dynamically linked serial & parallel binaries linked against OpenMPI 4.1.6. Requires AVX2 instruction set!"). Extract it to the desired installation directory. (Here I use `/opt/orca-6.0.0`.)
 
         cd /opt
-        sudo tar xvf ~/Downloads/orca_5_0_3*.tar.xz
-        sudo mv orca_5_0_3* orca-5.0.3
+        sudo tar xvf ~/Downloads/orca_6_0_0*.tar.xz
+        sudo mv orca_6_0_0* orca-6.0.0
 
-3. Download the `orcainit4` or `orcainit5` script from this repo to your computer and put it wherever you think appropriate (I just put it in the same directory as ORCA). Edit the initial part of the script, such that the `$orca_path` and `openmpi_path` variables contain the correct paths for your ORCA and OpenMPI installations, for example:
+3. Download the `orcainit[4|5|6]` script from this repo to your computer and put it wherever appropriate (I'd just put it in the same directory as ORCA). Edit the initial part of the script, such that the `$orca_path` and `openmpi_path` variables contain the correct paths for your ORCA and OpenMPI installations, for example:
         
-        orca_ver=5.0.3
-        openmpi_ver=4.1.1
+        orca_ver=6.0.0
+        openmpi_ver=4.1.6
         orca_path=/opt/orca-${orca_ver}
         openmpi_path=${orca_path}/openmpi-${openmpi_ver}
 
 4. Source (in a bash, zsh, fish, etc. shell) the script.
 
-        source /opt/orca-5.0.3/orcainit5
+        source /opt/orca-6.0.0/orcainit6
 
 5. Test provided sample ORCA jobs. Make sure it works with openmpi parallelism.
 
         cd test
         orca test1-1proc.orca test2-2procs.orca
 
-6. Now you are ready to go. Just remember to source `orcainit5` again each time you start a new shell. Note that, like the example above, you can give it multiple input files. They will be run sequentially.
+6. Now you are ready to go. Just remember to source `orcainit[4|5|6]` again each time you start a new shell. Note that, like the example above, you can give it multiple input files. They will be run sequentially.
 
         orca [your job file 1] [your job file 2] ...
         
