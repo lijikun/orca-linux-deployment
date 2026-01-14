@@ -19,21 +19,23 @@ fi
 backup_file() {
 	if [[ -e "${1}" ]]; then
 		if [[ -e "${1}.bak" ]]; then
-			backup_file "${1}.$(stat -c '%y' ${1} | cut -d '.' -f 1 | sed 's/-\| \|://g').bak"
+			backup_file "${1}.bak"
 		fi
-		mv "${1}" "${1}.bak"
+		mv "${1}" "${1}.$(stat -c '%y' ${1} | cut -d '.' -f 1 | sed 's/-\| \|://g').bak"
 	fi
 }
 
 orca_ser() {
   for file1 in "$@"; do	
+	sleep 1
 	backup_file "${file1}.log"
     "${orca_path}/orca" "${file1}" > "${file1}.log"; 
   done; 
 }
 
 orca_par() {
-  for file1 in "$@"; do	
+  for file1 in "$@"; do
+	sleep 1
 	backup_file "${file1}.log"
     "${orca_path}/orca" "${file1}" > "${file1}.log" &; 
   done; 
