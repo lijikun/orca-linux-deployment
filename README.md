@@ -1,8 +1,8 @@
-Scripts and installation process for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. Also works on WSL Debian or Ubuntu.
+Scripts and instructions for the deployment of parallelized quantum chemistry program [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) on Linux-x64 computers. Also works on WSL Debian or Ubuntu.
 
 # For ORCA version 4-6
 
-Tested to work under Ubuntu LTS 24.04, Debian 13 and WSL-Debian under Windows 11 with ORCA version up to 6.1.1 with OpenMPI 4.1.8, using modern AMD or Intel x64 processors. 
+Tested to work under Ubuntu LTS 24.04, Debian 13 and WSL2-Debian under Windows 11 with ORCA version up to 6.1.1 with OpenMPI 4.1.8, using modern AMD or Intel x64 processors. 
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
