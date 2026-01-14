@@ -50,7 +50,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         orca_ser [your job file 1] [your job file 2] [your job file 3]  # Will be run one after another.
         orca_par [your job file 1] [your job file 2] [your job file 3]  # Will be run simultaneously.
 
-   Also, if you do run orca jobs with these functions, old log files will be automatically backed up.
+   Also, if you do run orca jobs with these functions, existing log files for the input files will be automatically backed up.
         
 **Bonus:** `janpa_orca` is a helper script to use [JANPA](http://janpa.sourceforge.net/) with ORCA. Put it in the same folder as your JANPA .jar files, and edit it to point to the correct paths for JANPA and ORCA. Source this script, and you can just run `janpa_orca myOrcaJobName.orca` (provided the ORCA job has already been completed) to automate the JANPA analysis.
 
