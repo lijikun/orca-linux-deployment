@@ -2,13 +2,13 @@ Scripts and installation process for the deployment of parallelized quantum chem
 
 # For ORCA version 4-6
 
-Tested to work under Ubuntu LTS 22.04, Debian 12 and WSL-Debian under Windows 11 with ORCA version up to 6.0.0 with OpenMPI 4.1.6, with modern AMD or Intel x64 processors. 
+Tested to work under Ubuntu LTS 24.04, Debian 13 and WSL-Debian under Windows 11 with ORCA version up to 6.1.1 with OpenMPI 4.1.8, using modern AMD or Intel x64 processors. 
 
 I tried to use the static-linked binary version but it crashed into a segfault without any meaningful error message, so we have to use the *shared-library* version here.
 
 0. Take note of the version number of the ORCA package you want to use, along with the OpenMPI version against which it is compiled.
 
-1. Make sure you have sudo privileges. Download and install openmpi-4.1.6 (or any other specific version ORCA is compiled against) from source by running the following commands sequentially (Change the directory names as necessary):
+1. Make sure you have sudo privileges. Download and install OpenMPI (using the specific version against which ORCA is compiled) from source by running the following commands sequentially (changing the directory names to your own):
 
         cd /tmp
         wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.tar.gz
@@ -36,14 +36,21 @@ I tried to use the static-linked binary version but it crashed into a segfault w
 
         source /opt/orca-6.0.0/orcainit6
 
-5. Test provided sample ORCA jobs. Make sure it works with openmpi parallelism.
+5. Test with provided sample ORCA jobs or your own parallelized jobs. Make sure it works with openmpi parallelism.
 
         cd test
-        orca test1-1proc.orca test2-2procs.orca
+        orca test2-1proc.orca
+        orca_ser test1-1proc.orca test2-2procs.orca
+        orca_par test1-1proc.orca test2-2procs.orca
 
-6. Now you are ready to go. Just remember to source `orcainit[4|5|6]` again each time you start a new shell. Note that, like the example above, you can give it multiple input files. They will be run sequentially.
+7. Now you are ready to go. Just remember to source `orcainit[4|5|6]` again each time you start a new shell.
 
-        orca [your job file 1] [your job file 2] ...
+8. Note that I made two helper functions `orca_ser` and `orca_par` to run multiple jobs in series or in parallel: 
+
+        orca_ser [your job file 1] [your job file 2] [your job file 3]  # Will be run one after another.
+        orca_par [your job file 1] [your job file 2] [your job file 3]  # Will be run simultaneously.
+
+   Also, if you do run orca jobs with these functions, old log files will be automatically backed up.
         
 **Bonus:** `janpa_orca` is a helper script to use [JANPA](http://janpa.sourceforge.net/) with ORCA. Put it in the same folder as your JANPA .jar files, and edit it to point to the correct paths for JANPA and ORCA. Source this script, and you can just run `janpa_orca myOrcaJobName.orca` (provided the ORCA job has already been completed) to automate the JANPA analysis.
 
