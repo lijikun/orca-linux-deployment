@@ -25,7 +25,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         sudo tar xvf ~/Downloads/orca_6_0_0*.tar.xz
         sudo mv orca_6_0_0* orca-6.0.0
 
-3. Download the `orcainit[4|5|6]` script from this repo to your computer and put it wherever appropriate (I'd just put it in the same directory as ORCA). Edit the initial part of the script, such that the `$orca_path` and `openmpi_path` variables contain the correct paths for your ORCA and OpenMPI installations, for example:
+3. Download the `orcainit6` script from this repo to your computer and put it wherever appropriate (I'd just put it in the same directory as ORCA binaries). Edit the initial part of the script, such that the `$orca_path` and `openmpi_path` variables contain the correct paths for your ORCA and OpenMPI installations, for example:
         
         orca_ver=6.0.0
         openmpi_ver=4.1.6
@@ -43,7 +43,7 @@ I tried to use the static-linked binary version but it crashed into a segfault w
         orca_ser test1-1proc.orca test2-2procs.orca
         orca_par test1-1proc.orca test2-2procs.orca
 
-7. Now you are ready to go. Just remember to source `orcainit[4|5|6]` again each time you start a new shell.
+7. Now you are ready to go. Just remember to source `orcainit6` each time you start a new shell.
 
 8. Note that I made two helper functions `orca_ser` and `orca_par` to run multiple jobs in series or in parallel: 
 
